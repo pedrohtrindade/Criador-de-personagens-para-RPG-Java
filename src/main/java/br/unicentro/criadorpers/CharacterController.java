@@ -38,7 +38,7 @@ public class CharacterController {
 
     @FXML
     public void initialize() {
-        // Spinners
+        
         nivelSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 1));
         forcaSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 10));
         destrezaSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 10));
@@ -47,19 +47,19 @@ public class CharacterController {
         sabedoriaSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 10));
         carismaSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 10));
 
-        // Carregar combos
+        
         racaCombo.setItems(FXCollections.observableArrayList(RaceDAO.listarRacas()));
         classeCombo.setItems(FXCollections.observableArrayList(ClassDAO.listarClasses()));
 
-        // Carregar lista de equipamentos
+        
         equipamentosDisponiveis.setItems(FXCollections.observableArrayList(EquipamentoDAO.listarEquipamentos()));
         equipamentosPersonagem.setItems(FXCollections.observableArrayList());
 
-        // Carregar lista de habilidades
+        
         habilidadesDisponiveis.setItems(FXCollections.observableArrayList(HabilidadeDAO.listarHabilidades()));
         habilidadesPersonagem.setItems(FXCollections.observableArrayList());
 
-        // Configurar colunas da tabela
+       
         colNome.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getNome()));
         colNivel.setCellValueFactory(c -> new javafx.beans.property.SimpleObjectProperty<>(c.getValue().getNivel()));
         colRaca.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getRaca().getNome()));
@@ -117,16 +117,16 @@ public class CharacterController {
             return;
         }
 
-        // Inserir personagem no banco
+        
         int personagemId = CharacterDAO.inserirPersonagem(nome, nivel, forca, destreza, constituicao,
                 inteligencia, sabedoria, carisma, r.getId(), c.getId());
 
-        // Inserir equipamentos selecionados
+        
         for (Equipamento eq : equipamentosPersonagem.getItems()) {
             CharacterDAO.adicionarEquipamento(personagemId, eq.getId());
         }
 
-        // Inserir habilidades selecionadas
+        
         for (Habilidade h : habilidadesPersonagem.getItems()) {
             CharacterDAO.adicionarHabilidade(personagemId, h.getId());
         }
