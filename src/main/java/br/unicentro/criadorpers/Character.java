@@ -37,7 +37,7 @@ public class Character {
         this.equipamentos = equipamentos;
     }
 
-    // getters e setters
+    
     public int getId() { return id; }
     public String getNome() { return nome; }
     public int getNivel() { return nivel; }

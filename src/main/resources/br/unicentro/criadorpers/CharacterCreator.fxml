@@ -10,26 +10,26 @@
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <!-- Título -->
+    
     <Label text="Criador de Personagens" style="-fx-font-weight: bold;" >
         <font>
             <Font size="30"/>
         </font>
     </Label>
 
-    <!-- Nome -->
+    
     <HBox spacing="10">
         <Label text="Nome:" style="-fx-font-weight: bold;" minWidth="80"/>
         <TextField fx:id="nomeField" prefWidth="300"/>
     </HBox>
 
-    <!-- Nível -->
+    
     <HBox spacing="10">
         <Label text="Nível:" style="-fx-font-weight: bold;" minWidth="80"/>
         <Spinner fx:id="nivelSpinner" prefWidth="100"/>
     </HBox>
 
-    <!-- Atributos -->
+    
     <GridPane hgap="10" vgap="10">
         <Label text="Força:" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
         <Spinner fx:id="forcaSpinner" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="80"/>
@@ -50,7 +50,7 @@
         <Spinner fx:id="carismaSpinner" GridPane.rowIndex="2" GridPane.columnIndex="3" prefWidth="80"/>
     </GridPane>
 
-    <!-- Raça e Classe -->
+    
     <HBox spacing="20">
         <VBox spacing="5">
             <Label text="Raça" style="-fx-font-weight: bold;"/>
@@ -62,7 +62,7 @@
         </VBox>
     </HBox>
 
-    <!-- Equipamentos -->
+   
     <HBox spacing="20">
         <VBox spacing="5">
             <Label text="Equipamentos disponíveis" style="-fx-font-weight: bold;"/>
@@ -80,7 +80,7 @@
 
 
 
-    <!-- Habilidades -->
+   
     <Label text="Habilidades:" style="-fx-font-weight: bold;"/>
     <HBox spacing="10">
         <ListView fx:id="habilidadesDisponiveis" prefHeight="120" prefWidth="200"/>
@@ -91,7 +91,7 @@
         <ListView fx:id="habilidadesPersonagem" prefHeight="120" prefWidth="200"/>
     </HBox>
 
-    <!-- Botão Salvar -->
+    
     <HBox spacing="10">
         <Button text="Salvar Personagem" onAction="#salvarPersonagem" prefWidth="150"/>
     </HBox>

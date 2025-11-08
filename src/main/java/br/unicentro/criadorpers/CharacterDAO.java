@@ -14,7 +14,7 @@ public class CharacterDAO {
         );
     }
 
-    // Inserir personagem e retornar o ID gerado
+    
     public static int inserirPersonagem(String nome, int nivel, int forca, int destreza, int constituicao,
                                         int inteligencia, int sabedoria, int carisma, int idRaca, int idClasse) {
         String sql = "INSERT INTO personagens(nome, nivel, forca, destreza, constituicao, inteligencia, sabedoria, carisma, id_raca, id_classe) " +
@@ -44,7 +44,7 @@ public class CharacterDAO {
         return -1;
     }
 
-    // Listar todos os personagens
+    
     public static List<Character> listarPersonagens() {
         List<Character> lista = new ArrayList<>();
         String sql = "SELECT p.*, r.nome AS nome_raca, c.nome AS nome_classe " +
@@ -72,11 +72,11 @@ public class CharacterDAO {
                         rs.getInt("carisma"),
                         r,
                         c,
-                        new ArrayList<>(), // habilidades
-                        new ArrayList<>()  // equipamentos
+                        new ArrayList<>(), 
+                        new ArrayList<>()  
                 );
 
-                // Carregar equipamentos e habilidades do personagem
+                
                 p.getEquipamentos().addAll(listarEquipamentosPersonagem(p.getId()));
                 p.getHabilidades().addAll(listarHabilidadesPersonagem(p.getId()));
 
@@ -88,7 +88,7 @@ public class CharacterDAO {
         return lista;
     }
 
-    // --------------------- EQUIPAMENTOS ---------------------
+    
 
     public static void adicionarEquipamento(int idPersonagem, int idEquipamento) {
         String sql = "INSERT INTO personagem_equipamento(id_personagem, id_equipamento) VALUES (?, ?)";
@@ -150,7 +150,7 @@ public class CharacterDAO {
         return lista;
     }
 
-    // --------------------- HABILIDADES ---------------------
+    
 
     public static void adicionarHabilidade(int idPersonagem, int idHabilidade) {
         String sql = "INSERT INTO personagem_habilidade(id_personagem, id_habilidade) VALUES (?, ?)";
